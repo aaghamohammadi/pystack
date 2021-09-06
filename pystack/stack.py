@@ -4,8 +4,11 @@ class Stack:
     def __init__(self) -> None:
         self.__items = []
 
+    def __len__(self) -> int:
+        return len(self.__items)
+
     def is_empty(self) -> bool:
-        return len(self.__items) == 0
+        return len(self) == 0
 
     def is_full(self) -> bool:
         return len(self.__items) == self.CAPACITY
