@@ -1,5 +1,5 @@
 class Stack:
-    CAPACITY: int = 10
+    CAPACITY: int = 1_000_000
 
     def __init__(self) -> None:
         self.__items = []
@@ -11,7 +11,7 @@ class Stack:
         return len(self) == 0
 
     def is_full(self) -> bool:
-        return len(self.__items) == self.CAPACITY
+        return len(self) == self.CAPACITY
 
     def push(self, item: int) -> None:
         if type(item) != int:
