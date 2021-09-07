@@ -7,6 +7,7 @@ class StackTest:
     def setup_method(self):
         self.st = Stack()
 
+    @pytest.mark.ex
     def test_stack_is_empty(self):
         assert self.st.is_empty()
         assert len(self.st) == 0
@@ -31,8 +32,10 @@ class StackTest:
         assert self.st.top() == 7
         assert str(self.st) == "Stack(5, 3, 7)"
 
+    @pytest.mark.ex
+    @pytest.mark.slow
     def test_push_multiple_items_until_exception_raises(self):
-        for i in range(10):
+        for i in range(1_000_000):
             self.st.push(i)
         assert self.st.is_full()
         with pytest.raises(OverflowError):
@@ -45,6 +48,7 @@ class StackTest:
         assert self.st.is_empty()
         assert len(self.st) == 0
 
+    @pytest.mark.ex
     def test_pop_multiple_items(self):
         self.st.push(3)
         self.st.push(7)
@@ -53,6 +57,7 @@ class StackTest:
         with pytest.raises(IndexError):
             self.st.pop()
 
+    @pytest.mark.ex
     def test_push_non_integer_items(self):
         with pytest.raises(TypeError):
             self.st.push("3")
