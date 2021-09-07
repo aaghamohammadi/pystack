@@ -3,6 +3,7 @@ import pytest
 from pystack.stack import Stack
 
 
+@pytest.mark.smoke
 class StackTest:
     def setup_method(self):
         self.st = Stack()
