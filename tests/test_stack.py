@@ -58,11 +58,8 @@ class StackTest:
         with pytest.raises(IndexError):
             self.st.pop()
 
+    @pytest.mark.parametrize("item", ["3", 3.1, True])
     @pytest.mark.ex
-    def test_push_non_integer_items(self):
+    def test_push_non_integer_item(self, item):
         with pytest.raises(TypeError):
-            self.st.push("3")
-        with pytest.raises(TypeError):
-            self.st.push(3.1)
-        with pytest.raises(TypeError):
-            self.st.push(True)
+            self.st.push(item)
