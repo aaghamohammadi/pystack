@@ -16,6 +16,8 @@ class StackTest:
         assert str(self.st) == "Stack()"
         with pytest.raises(IndexError):
             self.st.pop()
+        with pytest.raises(IndexError):
+            self.st.top()
 
     def test_push_one_item(self):
         self.st.push(2)
