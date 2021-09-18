@@ -1,5 +1,5 @@
 class Stack:
-    CAPACITY: int = 1_000_000
+    CAPACITY: int = 10_000_000
 
     def __init__(self) -> None:
         self.__items = []

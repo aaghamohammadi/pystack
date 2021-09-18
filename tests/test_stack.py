@@ -38,11 +38,20 @@ class StackTest:
     @pytest.mark.ex
     @pytest.mark.slow
     def test_push_multiple_items_until_exception_raises(self):
-        for i in range(1_000_000):
+        for i in range(10_000_000):
             self.st.push(i)
         assert self.st.is_full()
         with pytest.raises(OverflowError):
             self.st.push(23)
+
+    @pytest.mark.slow
+    def test_push_multiple_items_and_pop_multiple_items(self):
+        for i in range(10_000_000):
+            if i % 2 == 0:
+                self.st.push(i)
+            else:
+                self.st.pop()
+        assert self.st.is_empty()
 
     def test_pop_one_item(self):
         self.st.push(5)
